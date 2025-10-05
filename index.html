@@ -133,14 +133,15 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
             align-items: center;
+            justify-content: center;
             position: relative;
-            padding: 6rem 2rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            gap: 4rem;
+            padding: 0 2rem;
+            text-align: center;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%230d0d0d;stop-opacity:1" /><stop offset="50%" style="stop-color:%232d2d2d;stop-opacity:1" /><stop offset="100%" style="stop-color:%230d0d0d;stop-opacity:1" /></linearGradient></defs><rect width="1000" height="600" fill="url(%23grad1)"/><circle cx="200" cy="150" r="100" fill="rgba(90,169,255,0.1)"/><circle cx="800" cy="400" r="80" fill="rgba(90,169,255,0.08)"/><circle cx="600" cy="100" r="60" fill="rgba(90,169,255,0.12)"/></svg>') center/cover;
         }
 
         .hero-bg {
@@ -156,47 +157,49 @@
         .gradient-orb {
             position: absolute;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(90, 169, 255, 0.15) 0%, transparent 70%);
-            animation: float 8s ease-in-out infinite;
-            filter: blur(1px);
+            background: radial-gradient(circle, rgba(90, 169, 255, 0.08) 0%, transparent 70%);
+            animation: float 12s ease-in-out infinite;
+            filter: blur(2px);
         }
 
         .gradient-orb:nth-child(1) {
-            width: 400px;
-            height: 400px;
+            width: 500px;
+            height: 500px;
             top: 10%;
-            left: 20%;
+            left: 15%;
             animation-delay: 0s;
         }
 
         .gradient-orb:nth-child(2) {
-            width: 300px;
-            height: 300px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 3s;
+            width: 350px;
+            height: 350px;
+            top: 50%;
+            right: 20%;
+            animation-delay: 4s;
         }
 
         .gradient-orb:nth-child(3) {
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
             bottom: 20%;
             left: 60%;
-            animation-delay: 6s;
+            animation-delay: 8s;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-30px) scale(1.05); }
+            0%, 100% { transform: translateY(0px) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-40px) scale(1.1); opacity: 0.8; }
         }
 
         .hero-content {
-            z-index: 2;
             position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .hero-title {
-            font-size: 3.5rem;
+            font-size: 4.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             color: #ffffff;
@@ -206,12 +209,15 @@
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 2.5rem;
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
             font-weight: 400;
             line-height: 1.5;
             letter-spacing: -0.01em;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
@@ -229,12 +235,13 @@
         .hero-buttons {
             display: flex;
             gap: 1rem;
+            justify-content: center;
             animation: fadeInUp 1s ease-out 0.4s both;
         }
 
         .btn {
-            padding: 0.875rem 2rem;
-            font-size: 0.95rem;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
             font-weight: 500;
             text-decoration: none;
             border-radius: 8px;
@@ -242,6 +249,7 @@
             border: none;
             cursor: pointer;
             letter-spacing: -0.01em;
+            display: inline-block;
         }
 
         .btn-primary {
@@ -251,65 +259,22 @@
 
         .btn-primary:hover {
             background: #4a96e6;
-            box-shadow: 0 8px 25px rgba(90, 169, 255, 0.3);
-            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(90, 169, 255, 0.4);
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
-            background: transparent;
-            color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.9);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         .btn-secondary:hover {
             color: #ffffff;
-            border-color: rgba(255, 255, 255, 0.3);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .hero-visual {
-            position: relative;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .animated-gradient {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, 
-                rgba(90, 169, 255, 0.1) 0%, 
-                rgba(90, 169, 255, 0.05) 25%, 
-                transparent 50%, 
-                rgba(90, 169, 255, 0.05) 75%, 
-                rgba(90, 169, 255, 0.1) 100%);
-            border-radius: 20px;
-            animation: gradientShift 4s ease-in-out infinite alternate;
-            position: relative;
-            overflow: hidden;
-        }
-
-        @keyframes gradientShift {
-            0% { transform: rotate(0deg) scale(1); }
-            100% { transform: rotate(2deg) scale(1.02); }
-        }
-
-        .animated-gradient::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(90, 169, 255, 0.1), transparent);
-            animation: sweep 3s linear infinite;
-        }
-
-        @keyframes sweep {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
         }
 
         /* Trusted By Section */
@@ -647,15 +612,8 @@
 
         /* Mobile Responsive */
         @media (max-width: 1024px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 3rem;
-                padding: 5rem 2rem 2rem;
-            }
-
             .hero-title {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
 
             .nav-links {
@@ -664,17 +622,23 @@
         }
 
         @media (max-width: 768px) {
+            .hero {
+                padding: 0 1rem;
+            }
+
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
 
             .hero-subtitle {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
+                margin-bottom: 2.5rem;
             }
 
             .hero-buttons {
                 flex-direction: column;
                 gap: 0.75rem;
+                align-items: center;
             }
 
             .btn {
@@ -703,6 +667,21 @@
             .trusted-by,
             .features {
                 padding: 3rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                padding: 0.875rem 2rem;
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -738,14 +717,11 @@
     <section class="hero" id="hero">
         <div class="hero-content">
             <h1 class="hero-title">AI-Powered ERP for the Next Generation</h1>
-            <p class="hero-subtitle">The easiest way to automate and scale your business operations.</p>
+            <p class="hero-subtitle">The easiest way to automate and scale your business operations with intelligent workflows and seamless integrations.</p>
             <div class="hero-buttons">
                 <a href="#" class="btn btn-primary">Get Started</a>
-                <a href="#" class="btn btn-secondary">Documentation</a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
             </div>
-        </div>
-        <div class="hero-visual">
-            <div class="animated-gradient"></div>
         </div>
     </section>
 
