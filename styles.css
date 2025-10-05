@@ -1,63 +1,112 @@
+/* Custom styles for Syncrony Landing Page */
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    color: #333;
+    font-family: 'Inter', sans-serif;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+/* Fade-in animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
+/* Swipe indicator animation */
+.swipe-indicator {
+    animation: swipe 2s ease-in-out infinite;
 }
 
-header p {
-    margin: 0.5rem 0 0;
-    font-size: 1.2rem;
+@keyframes swipe {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
 }
 
-section {
-    padding: 2rem 0;
+/* Logo scroll animation */
+.logo-scroll {
+    animation: scroll 20s linear infinite;
 }
 
-section h2 {
-    text-align: center;
-    margin-bottom: 1rem;
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
-section.about p, section.contact p {
-    text-align: center;
+/* Hero gradient background */
+.hero-gradient {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
 }
 
-section.features ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-section.features ul li {
-    display: inline-block;
-    margin: 0 1rem;
-    font-weight: bold;
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
 
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: 2rem;
+::-webkit-scrollbar-thumb {
+    background: #6366F1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4F46E5;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Loading state for images */
+.image-placeholder {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Hover effects */
+.hover-lift:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+}
+
+/* Focus states for accessibility */
+.focus-ring:focus {
+    outline: 2px solid #6366F1;
+    outline-offset: 2px;
+}
+
+/* Custom button styles */
+.btn-primary {
+    background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #4F46E5 0%, #3730A3 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .fade-in {
+        transform: translateY(20px);
+    }
+    
+    .logo-scroll {
+        animation-duration: 15s;
+    }
 }
