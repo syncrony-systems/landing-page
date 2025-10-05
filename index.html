@@ -56,12 +56,13 @@
         
         .logo-scroll-container {
             display: flex;
-            animation: scroll 30s linear infinite;
+            animation: scroll 40s linear infinite;
+            gap: 3rem;
         }
         
         @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            100% { transform: translateX(calc(-100% - 3rem)); }
         }
         
         .logo-scroll-container:hover {
@@ -222,7 +223,7 @@
             
             <!-- Partners Logos -->
             <div class="relative overflow-hidden">
-                <div class="logo-scroll-container space-x-12">
+                <div class="logo-scroll-container">
                     <!-- First set of logos -->
                     <div class="flex space-x-12 flex-shrink-0">
                         <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
