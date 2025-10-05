@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Syncrony - Innovative ERP System</title>
+    <title>Syncrony - AI-Powered ERP for the Next Generation</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -18,10 +18,11 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #000;
-            color: #fff;
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #0d0d0d 100%);
+            color: #ffffff;
             overflow-x: hidden;
             line-height: 1.6;
+            min-height: 100vh;
         }
 
         /* Navbar Styles */
@@ -30,14 +31,15 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            background: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
         }
 
         .navbar.scrolled {
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(13, 13, 13, 0.95);
+            border-bottom-color: rgba(255, 255, 255, 0.12);
         }
 
         .nav-container {
@@ -45,50 +47,48 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
             text-decoration: none;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            letter-spacing: -0.02em;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
             align-items: center;
         }
 
         .nav-links a {
-            color: #fff;
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             font-weight: 400;
-            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
             position: relative;
+            letter-spacing: -0.01em;
         }
 
         .nav-links a:hover {
-            color: #667eea;
-            text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+            color: #ffffff;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -8px;
             left: 0;
             width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            transition: width 0.3s ease;
+            height: 1px;
+            background: #5aa9ff;
+            transition: width 0.3s cubic-bezier(0.23, 1, 0.320, 1);
         }
 
         .nav-links a:hover::after {
@@ -97,113 +97,121 @@
 
         .nav-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
+            align-items: center;
         }
 
         .nav-btn {
-            padding: 0.5rem 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.6rem 1.25rem;
             background: transparent;
-            color: #fff;
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
             font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: -0.01em;
+            border: none;
         }
 
         .nav-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #667eea;
-            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        .nav-btn.sign-in {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
+        .nav-btn.get-started {
+            background: #5aa9ff;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .nav-btn.get-started:hover {
+            background: #4a96e6;
+            box-shadow: 0 4px 12px rgba(90, 169, 255, 0.3);
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
-            position: relative;
-            display: flex;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #000 100%);
+            position: relative;
+            padding: 6rem 2rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 4rem;
         }
 
         .hero-bg {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            z-index: -1;
             overflow: hidden;
-            z-index: 1;
         }
 
-        .floating-shape {
+        .gradient-orb {
             position: absolute;
             border-radius: 50%;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            animation: float 6s ease-in-out infinite;
-            box-shadow: 0 0 50px rgba(102, 126, 234, 0.2);
+            background: radial-gradient(circle, rgba(90, 169, 255, 0.15) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+            filter: blur(1px);
         }
 
-        .floating-shape:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: 20%;
-            left: 10%;
+        .gradient-orb:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            top: 10%;
+            left: 20%;
             animation-delay: 0s;
         }
 
-        .floating-shape:nth-child(2) {
-            width: 200px;
-            height: 200px;
+        .gradient-orb:nth-child(2) {
+            width: 300px;
+            height: 300px;
             top: 60%;
-            right: 15%;
-            animation-delay: 2s;
+            right: 10%;
+            animation-delay: 3s;
         }
 
-        .floating-shape:nth-child(3) {
-            width: 150px;
-            height: 150px;
+        .gradient-orb:nth-child(3) {
+            width: 200px;
+            height: 200px;
             bottom: 20%;
-            left: 70%;
-            animation-delay: 4s;
+            left: 60%;
+            animation-delay: 6s;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
         }
 
         .hero-content {
-            text-align: center;
             z-index: 2;
             position: relative;
-            max-width: 800px;
-            padding: 0 2rem;
         }
 
         .hero-title {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #fff 0%, #667eea 50%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
             animation: fadeInUp 1s ease-out;
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 3rem;
-            font-weight: 300;
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
@@ -220,158 +228,216 @@
 
         .hero-buttons {
             display: flex;
-            gap: 1.5rem;
-            justify-content: center;
+            gap: 1rem;
             animation: fadeInUp 1s ease-out 0.4s both;
         }
 
         .btn {
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            font-weight: 600;
+            padding: 0.875rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 500;
             text-decoration: none;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            border: none;
+            cursor: pointer;
+            letter-spacing: -0.01em;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #fff;
-            border: none;
+            background: #5aa9ff;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #4a96e6;
+            box-shadow: 0 8px 25px rgba(90, 169, 255, 0.3);
+            transform: translateY(-1px);
         }
 
         .btn-secondary {
             background: transparent;
-            color: #fff;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        .btn-secondary:hover {
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        .macbook-mockup {
-            margin-top: 4rem;
+        .hero-visual {
             position: relative;
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .macbook-frame {
-            width: 600px;
-            height: 350px;
-            background: #2a2a2a;
-            border-radius: 20px;
-            padding: 20px;
-            margin: 0 auto;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        .macbook-screen {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #1a1a1a, #333);
-            border-radius: 10px;
-            border: 2px solid #444;
+            height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 1.2rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
         }
 
-        /* Section Styles */
-        section {
-            padding: 5rem 0;
-            position: relative;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, #fff 0%, #667eea 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Steps Section */
-        .steps {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .step-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .animated-gradient {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                rgba(90, 169, 255, 0.1) 0%, 
+                rgba(90, 169, 255, 0.05) 25%, 
+                transparent 50%, 
+                rgba(90, 169, 255, 0.05) 75%, 
+                rgba(90, 169, 255, 0.1) 100%);
             border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
+            animation: gradientShift 4s ease-in-out infinite alternate;
             position: relative;
             overflow: hidden;
         }
 
-        .step-card::before {
+        @keyframes gradientShift {
+            0% { transform: rotate(0deg) scale(1); }
+            100% { transform: rotate(2deg) scale(1.02); }
+        }
+
+        .animated-gradient::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-            transition: left 0.5s;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(90, 169, 255, 0.1), transparent);
+            animation: sweep 3s linear infinite;
         }
 
-        .step-card:hover::before {
-            left: 100%;
+        @keyframes sweep {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
-        .step-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
-            border-color: rgba(102, 126, 234, 0.3);
+        /* Trusted By Section */
+        .trusted-by {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .step-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
+        .trusted-subtitle {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 3rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .company-logo {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 2rem;
-            color: #fff;
+            height: 60px;
+            padding: 1rem;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            border-radius: 8px;
         }
 
-        .step-card h3 {
+        .company-logo:hover {
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(90, 169, 255, 0.3), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #5aa9ff, #4a96e6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
             font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #fff;
+            color: #ffffff;
         }
 
-        .step-card p {
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-card p {
             color: rgba(255, 255, 255, 0.7);
             line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         /* Pricing Section */
@@ -543,270 +609,189 @@
 
         /* Footer */
         .footer {
-            background: #0a0a0a;
-            padding: 2rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(13, 13, 13, 0.8);
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
         }
 
         .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
         }
 
         .footer-links {
             display: flex;
+            justify-content: center;
             gap: 2rem;
             list-style: none;
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.5);
             text-decoration: none;
-            transition: color 0.3s ease;
+            font-size: 0.9rem;
+            transition: color 0.3s cubic-bezier(0.23, 1, 0.320, 1);
         }
 
         .footer-links a:hover {
-            color: #667eea;
+            color: rgba(255, 255, 255, 0.8);
         }
 
         /* Mobile Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+                padding: 5rem 2rem 2rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
             .nav-links {
                 display: none;
             }
+        }
 
+        @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
             }
 
             .hero-subtitle {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
 
             .hero-buttons {
                 flex-direction: column;
-                align-items: center;
+                gap: 0.75rem;
             }
 
-            .macbook-frame {
-                width: 90%;
-                max-width: 400px;
+            .btn {
+                width: 100%;
+                max-width: 300px;
             }
 
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .steps-grid, .pricing-grid, .founders-grid {
+            .features-grid {
                 grid-template-columns: 1fr;
             }
 
-            .footer-content {
+            .logo-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .footer-links {
                 flex-direction: column;
                 gap: 1rem;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .trusted-by,
+            .features {
+                padding: 3rem 1rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Background -->
+    <div class="hero-bg">
+        <div class="gradient-orb"></div>
+        <div class="gradient-orb"></div>
+        <div class="gradient-orb"></div>
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">Syncrony</a>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#products">Products</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#company">Company</a></li>
                 <li><a href="#resources">Resources</a></li>
+                <li><a href="#help">Help</a></li>
+                <li><a href="#docs">Docs</a></li>
                 <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-buttons">
-                <a href="#" class="nav-btn">Log in</a>
-                <a href="#" class="nav-btn sign-in">Sign in</a>
+                <a href="#" class="nav-btn">Log In</a>
+                <a href="#" class="nav-btn get-started">Get Started</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="hero-bg">
-            <div class="floating-shape"></div>
-            <div class="floating-shape"></div>
-            <div class="floating-shape"></div>
-        </div>
         <div class="hero-content">
-            <h1 class="hero-title">Innovative ERP System by Syncrony</h1>
-            <p class="hero-subtitle">AI-powered agility for every business challenge.</p>
+            <h1 class="hero-title">AI-Powered ERP for the Next Generation</h1>
+            <p class="hero-subtitle">The easiest way to automate and scale your business operations.</p>
             <div class="hero-buttons">
                 <a href="#" class="btn btn-primary">Get Started</a>
-                <a href="#" class="btn btn-secondary">See Demo</a>
+                <a href="#" class="btn btn-secondary">Documentation</a>
             </div>
-            <div class="macbook-mockup">
-                <div class="macbook-frame">
-                    <div class="macbook-screen">
-                        Dashboard Preview
-                    </div>
-                </div>
-            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="animated-gradient"></div>
         </div>
     </section>
 
-    <!-- 3 Steps Section -->
-    <section class="steps" id="steps">
-        <div class="container">
-            <h2 class="section-title">3 Steps to Get Started</h2>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-icon">1</div>
-                    <h3>Sign Up</h3>
-                    <p>Create your account and choose the perfect plan for your business needs. Get started in minutes with our streamlined onboarding process.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-icon">2</div>
-                    <h3>Configure</h3>
-                    <p>Customize your ERP system with our intuitive setup wizard. Import your data and configure workflows that match your business processes.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-icon">3</div>
-                    <h3>Launch</h3>
-                    <p>Go live with your new ERP system. Our AI-powered insights and real-time analytics help you make better decisions from day one.</p>
-                </div>
-            </div>
+    <!-- Trusted By Section -->
+    <section class="trusted-by">
+        <p class="trusted-subtitle">Companies of all sizes trust Syncrony to manage their business processes.</p>
+        <div class="logo-grid">
+            <div class="company-logo">TechCorp</div>
+            <div class="company-logo">InnovateLabs</div>
+            <div class="company-logo">GlobalSystems</div>
+            <div class="company-logo">FutureWorks</div>
+            <div class="company-logo">DataFlow Inc</div>
+            <div class="company-logo">CloudBase</div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <h2 class="section-title">Choose Your Plan</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Basic</h3>
-                    <div class="pricing-price">$99<span style="font-size: 1rem; color: rgba(255,255,255,0.6);">/month</span></div>
-                    <ul class="pricing-features">
-                        <li>Core ERP Modules</li>
-                        <li>Up to 10 Users</li>
-                        <li>Basic Analytics</li>
-                        <li>Email Support</li>
-                        <li>Standard Security</li>
-                    </ul>
-                    <a href="#" class="btn btn-secondary">Get Started</a>
-                </div>
-                <div class="pricing-card featured">
-                    <h3>Pro</h3>
-                    <div class="pricing-price">$299<span style="font-size: 1rem; color: rgba(255,255,255,0.6);">/month</span></div>
-                    <ul class="pricing-features">
-                        <li>All Basic Features</li>
-                        <li>Up to 50 Users</li>
-                        <li>AI-Powered Analytics</li>
-                        <li>Priority Support</li>
-                        <li>Advanced Security</li>
-                        <li>Custom Integrations</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary">Get Started</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Enterprise</h3>
-                    <div class="pricing-price">$999<span style="font-size: 1rem; color: rgba(255,255,255,0.6);">/month</span></div>
-                    <ul class="pricing-features">
-                        <li>All Pro Features</li>
-                        <li>Unlimited Users</li>
-                        <li>Custom Development</li>
-                        <li>24/7 Dedicated Support</li>
-                        <li>Enterprise Security</li>
-                        <li>White-label Options</li>
-                    </ul>
-                    <a href="#" class="btn btn-secondary">Get Started</a>
-                </div>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Modular AI Workflows</h3>
+                <p>Build custom automation workflows with our intelligent AI engine. Streamline complex business processes and reduce manual work across all departments.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Founders Section -->
-    <section class="founders" id="founders">
-        <div class="container">
-            <h2 class="section-title">Meet the Founders</h2>
-            <div class="founders-grid">
-                <div class="founder-card" onclick="expandFounderInfo(1)">
-                    <div class="founder-image">
-                        Founder Image Placeholder
-                    </div>
-                    <div class="founder-info">
-                        <h4>John Doe</h4>
-                        <p>CEO & Co-Founder</p>
-                    </div>
-                </div>
-                <div class="founder-card" onclick="expandFounderInfo(2)">
-                    <div class="founder-image">
-                        Founder Image Placeholder
-                    </div>
-                    <div class="founder-info">
-                        <h4>Jane Smith</h4>
-                        <p>CTO & Co-Founder</p>
-                    </div>
-                </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure Data Automation</h3>
+                <p>Enterprise-grade security with end-to-end encryption and compliance standards. Your business data stays protected while automating critical operations.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <h2 class="section-title">Q&A</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h4>What makes Syncrony ERP different from other solutions?</h4>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Syncrony ERP is built with AI-first architecture, providing intelligent insights and automation that traditional ERP systems lack. Our platform adapts to your business processes rather than forcing you to adapt to rigid software structures.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h4>How quickly can we implement Syncrony ERP?</h4>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Most businesses can go live within 2-4 weeks. Our streamlined onboarding process and AI-assisted configuration dramatically reduce implementation time compared to traditional ERP deployments.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h4>Is my data secure with Syncrony?</h4>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolutely. We employ enterprise-grade security measures including end-to-end encryption, multi-factor authentication, and comply with SOC 2 Type II, GDPR, and other industry standards.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h4>Can Syncrony integrate with our existing tools?</h4>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, Syncrony offers seamless integration with over 200 popular business tools including CRM systems, accounting software, e-commerce platforms, and productivity suites through our API-first architecture.</p>
-                    </div>
-                </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔗</div>
+                <h3>Seamless Integration</h3>
+                <p>Connect with over 200+ business tools and platforms. Our API-first approach ensures smooth data flow between all your existing systems.</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Syncrony Systems. All rights reserved.</p>
-                <ul class="footer-links">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">Twitter</a></li>
-                </ul>
-            </div>
+        <div class="footer-content">
+            <p class="footer-text">&copy; 2025 Syncrony Systems. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Privacy</a></li>
+            </ul>
         </div>
     </footer>
 
@@ -835,43 +820,10 @@
             });
         });
 
-        // FAQ toggle functionality
-        function toggleFAQ(element) {
-            const answer = element.nextElementSibling;
-            const toggle = element.querySelector('.faq-toggle');
-            
-            // Close all other FAQ items
-            document.querySelectorAll('.faq-answer').forEach(item => {
-                if (item !== answer) {
-                    item.classList.remove('active');
-                    item.parentElement.querySelector('.faq-toggle').textContent = '+';
-                }
-            });
-            
-            // Toggle current FAQ item
-            answer.classList.toggle('active');
-            toggle.textContent = answer.classList.contains('active') ? '−' : '+';
-        }
-
-        // Founder info expansion
-        function expandFounderInfo(founderId) {
-            const hero = document.getElementById('hero');
-            hero.style.transform = 'translateY(-100px)';
-            hero.style.transition = 'transform 0.8s ease';
-            
-            // Add more detailed founder info here
-            console.log(`Expanding info for founder ${founderId}`);
-            
-            // Reset after animation
-            setTimeout(() => {
-                hero.style.transform = 'translateY(0)';
-            }, 3000);
-        }
-
-        // Intersection Observer for animations
+        // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver(function(entries) {
@@ -883,38 +835,62 @@
             });
         }, observerOptions);
 
-        // Observe all sections for scroll animations
-        document.querySelectorAll('section').forEach(section => {
+        // Observe sections for scroll animations
+        document.querySelectorAll('.trusted-by, .features').forEach(section => {
             section.style.opacity = '0';
             section.style.transform = 'translateY(30px)';
-            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            section.style.transition = 'opacity 0.8s cubic-bezier(0.23, 1, 0.320, 1), transform 0.8s cubic-bezier(0.23, 1, 0.320, 1)';
             observer.observe(section);
         });
 
-        // Hero section is always visible
-        document.querySelector('.hero').style.opacity = '1';
-        document.querySelector('.hero').style.transform = 'translateY(0)';
-
-        // Add hover effects to cards
-        document.querySelectorAll('.step-card, .pricing-card, .founder-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
+        // Parallax effect for gradient orbs
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const orbs = document.querySelectorAll('.gradient-orb');
             
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+            orbs.forEach((orb, index) => {
+                const speed = 0.3 + (index * 0.1);
+                orb.style.transform = `translateY(${scrolled * speed}px)`;
             });
         });
 
-        // Parallax effect for floating shapes
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const shapes = document.querySelectorAll('.floating-shape');
-            
-            shapes.forEach((shape, index) => {
-                const speed = 0.5 + (index * 0.2);
-                shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+        // Add stagger animation to feature cards
+        const featureCards = document.querySelectorAll('.feature-card');
+        const cardObserver = new IntersectionObserver(function(entries) {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 150);
+                }
             });
+        }, { threshold: 0.1 });
+
+        featureCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.6s cubic-bezier(0.23, 1, 0.320, 1) ${index * 0.1}s, transform 0.6s cubic-bezier(0.23, 1, 0.320, 1) ${index * 0.1}s`;
+            cardObserver.observe(card);
+        });
+
+        // Company logos fade-in animation
+        const logoObserver = new IntersectionObserver(function(entries) {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.company-logo').forEach((logo, index) => {
+            logo.style.opacity = '0';
+            logo.style.transform = 'translateY(20px)';
+            logo.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+            logoObserver.observe(logo);
         });
     </script>
 </body>
