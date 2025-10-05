@@ -54,13 +54,18 @@
             50% { transform: translateX(10px); }
         }
         
-        .logo-scroll {
-            animation: scroll 20s linear infinite;
+        .logo-scroll-container {
+            display: flex;
+            animation: scroll 30s linear infinite;
         }
         
         @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
+        }
+        
+        .logo-scroll-container:hover {
+            animation-play-state: paused;
         }
         
         .hero-gradient {
@@ -217,32 +222,48 @@
             
             <!-- Partners Logos -->
             <div class="relative overflow-hidden">
-                <div class="flex items-center justify-center space-x-12 logo-scroll">
-                    <!-- Logo placeholders -->
-                    <div class="flex-shrink-0 w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
-                        <span class="text-gray-400 font-semibold">TechCorp</span>
+                <div class="logo-scroll-container space-x-12">
+                    <!-- First set of logos -->
+                    <div class="flex space-x-12 flex-shrink-0">
+                        <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
+                            <span class="text-gray-400 font-semibold">TechCorp</span>
+                        </div>
+                        <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
+                            <span class="text-gray-400 font-semibold">InnovateAI</span>
+                        </div>
+                        <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
+                            <span class="text-gray-400 font-semibold">DataFlow</span>
+                        </div>
+                        <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
+                            <span class="text-gray-400 font-semibold">CloudBase</span>
+                        </div>
+                        <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
+                            <span class="text-gray-400 font-semibold">NextGen</span>
+                        </div>
+                        <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
+                            <span class="text-gray-400 font-semibold">FutureOps</span>
+                        </div>
                     </div>
-                    <div class="flex-shrink-0 w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
-                        <span class="text-gray-400 font-semibold">InnovateAI</span>
-                    </div>
-                    <div class="flex-shrink-0 w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
-                        <span class="text-gray-400 font-semibold">DataFlow</span>
-                    </div>
-                    <div class="flex-shrink-0 w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
-                        <span class="text-gray-400 font-semibold">CloudBase</span>
-                    </div>
-                    <div class="flex-shrink-0 w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
-                        <span class="text-gray-400 font-semibold">NextGen</span>
-                    </div>
-                    <div class="flex-shrink-0 w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
-                        <span class="text-gray-400 font-semibold">FutureOps</span>
-                    </div>
-                    <!-- Duplicate for seamless scroll -->
-                    <div class="flex-shrink-0 w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
-                        <span class="text-gray-400 font-semibold">TechCorp</span>
-                    </div>
-                    <div class="flex-shrink-0 w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
-                        <span class="text-gray-400 font-semibold">InnovateAI</span>
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="flex space-x-12 flex-shrink-0">
+                        <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
+                            <span class="text-gray-400 font-semibold">TechCorp</span>
+                        </div>
+                        <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
+                            <span class="text-gray-400 font-semibold">InnovateAI</span>
+                        </div>
+                        <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
+                            <span class="text-gray-400 font-semibold">DataFlow</span>
+                        </div>
+                        <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
+                            <span class="text-gray-400 font-semibold">CloudBase</span>
+                        </div>
+                        <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
+                            <span class="text-gray-400 font-semibold">NextGen</span>
+                        </div>
+                        <div class="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center hover:bg-gray-300 transition-colors">
+                            <span class="text-gray-400 font-semibold">FutureOps</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -422,15 +443,16 @@
             }
         });
 
-        // Add hover effect to partner logos
-        document.querySelectorAll('.logo-scroll > div').forEach(logo => {
-            logo.addEventListener('mouseenter', () => {
-                logo.style.animationPlayState = 'paused';
+        // Add hover effect to partner logos - pause animation on hover
+        const logoContainer = document.querySelector('.logo-scroll-container');
+        if (logoContainer) {
+            logoContainer.addEventListener('mouseenter', () => {
+                logoContainer.style.animationPlayState = 'paused';
             });
-            logo.addEventListener('mouseleave', () => {
-                logo.style.animationPlayState = 'running';
+            logoContainer.addEventListener('mouseleave', () => {
+                logoContainer.style.animationPlayState = 'running';
             });
-        });
+        }
     </script>
 
 </body>
