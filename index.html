@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Syncrony - The AI-Driven ERP that adapts to your business</title>
+    <title>Syncrony - The AI-Driven ERP adapting to YOUR business</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -77,13 +77,13 @@
 <body class="bg-gray-50 text-gray-900 font-inter">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+    <nav class="fixed top-0 w-full z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
                 <div class="flex items-center pl-30000">
                     <a href="#" class="flex items-center">
-                        <svg class="h-40 w-60 text-primary" viewBox="0 0 2048.000000 2048.000000" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="h-40 w-60 text-white" viewBox="0 0 2048.000000 2048.000000" xmlns="http://www.w3.org/2000/svg">
                             <g transform="translate(0.000000,2048.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
                                 <path d="M4175 12202 l-70 -48 -3 -1151 -2 -1151 247 -140 c137 -77 300 -172 363 -210 l115 -70 3 -1021 c2 -807 5 -1021 15 -1021 6 0 23 9 37 20 14 11 30 20 36 20 6 0 23 11 38 25 l26 24 0 1034 0 1034 -142 84 c-78 46 -237 141 -352 210 l-211 126 -3 1141 c-2 904 -5 1142 -15 1141 -6 0 -43 -21 -82 -47z"/>
                                 <path d="M3363 11302 l-62 -47 -1 -1930 0 -1931 63 -37 c35 -20 67 -37 70 -37 4 0 7 907 7 2015 0 1108 -3 2015 -7 2014 -5 0 -36 -21 -70 -47z"/>
@@ -106,18 +106,18 @@
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#pricing" class="text-gray-600 hover:text-primary transition-colors">Pricing</a>
-                    <a href="#contact" class="text-gray-600 hover:text-primary transition-colors">Contact</a>
-                    <a href="#about" class="text-gray-600 hover:text-primary transition-colors">About</a>
-                    <a href="#products" class="text-gray-600 hover:text-primary transition-colors">Products</a>
-                    <a href="#resources" class="text-gray-600 hover:text-primary transition-colors">Resources</a>
-                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">Sign In</a>
-                    <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors">Log In</a>
+                    <a href="#pricing" class="text-white hover:text-primary-light transition-colors font-medium">Pricing</a>
+                    <a href="#contact" class="text-white hover:text-primary-light transition-colors font-medium">Contact</a>
+                    <a href="#about" class="text-white hover:text-primary-light transition-colors font-medium">About</a>
+                    <a href="#products" class="text-white hover:text-primary-light transition-colors font-medium">Products</a>
+                    <a href="#resources" class="text-white hover:text-primary-light transition-colors font-medium">Resources</a>
+                    <a href="#" class="text-white hover:text-primary-light transition-colors font-medium">Sign In</a>
+                    <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors font-medium">Log In</a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary">
+                    <button id="mobile-menu-btn" class="text-white hover:text-primary-light">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -127,28 +127,36 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-gray-100">
             <div class="px-4 py-4 space-y-3">
-                <a href="#pricing" class="block text-gray-600 hover:text-primary transition-colors">Pricing</a>
-                <a href="#contact" class="block text-gray-600 hover:text-primary transition-colors">Contact</a>
-                <a href="#about" class="block text-gray-600 hover:text-primary transition-colors">About</a>
-                <a href="#products" class="block text-gray-600 hover:text-primary transition-colors">Products</a>
-                <a href="#resources" class="block text-gray-600 hover:text-primary transition-colors">Resources</a>
-                <a href="#" class="block text-gray-600 hover:text-primary transition-colors">Sign In</a>
+                <a href="#pricing" class="block text-gray-900 hover:text-primary transition-colors">Pricing</a>
+                <a href="#contact" class="block text-gray-900 hover:text-primary transition-colors">Contact</a>
+                <a href="#about" class="block text-gray-900 hover:text-primary transition-colors">About</a>
+                <a href="#products" class="block text-gray-900 hover:text-primary transition-colors">Products</a>
+                <a href="#resources" class="block text-gray-900 hover:text-primary transition-colors">Resources</a>
+                <a href="#" class="block text-gray-900 hover:text-primary transition-colors">Sign In</a>
                 <a href="#" class="block bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors text-center">Log In</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-gradient pt-32 pb-32 lg:pt-40 lg:pb-40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative pt-32 pb-32 lg:pt-40 lg:pb-40 overflow-hidden">
+        <!-- Background Video -->
+        <video id="hero-video" autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0" preload="auto" poster="">
+            <source src="video.webm" type="video/webm">
+        </video>
+        
+        <!-- Overlay for better text readability -->
+        <div class="absolute inset-0 bg-black/30 z-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
             <div class="text-center fade-in">
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 leading-tight">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight drop-shadow-lg">
                     The AI-Driven ERP<br>
-                    <span class="text-primary">that adapts to your business</span>
+                    <span class="text-primary-light">that adapts to your business</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-600 mb-10 max-w-4xl mx-auto">
+                <p class="text-xl md:text-2xl text-gray-100 mb-10 max-w-4xl mx-auto drop-shadow-md">
                     No setup. No coding. Just tell it what you need.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -431,13 +439,7 @@
         // Add scroll effect to navbar
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                navbar.classList.add('bg-white/95');
-                navbar.classList.remove('bg-white/90');
-            } else {
-                navbar.classList.add('bg-white/90');
-                navbar.classList.remove('bg-white/95');
-            }
+            // Navbar bleibt jetzt immer transparent
         });
 
         // Add hover effect to partner logos - pause animation on hover
@@ -448,6 +450,41 @@
             });
             logoContainer.addEventListener('mouseleave', () => {
                 logoContainer.style.animationPlayState = 'running';
+            });
+        }
+
+        // Ensure video plays
+        const heroVideo = document.getElementById('hero-video');
+        if (heroVideo) {
+            // Force video to load and play immediately
+            heroVideo.load();
+            
+            // Try multiple times to ensure it plays
+            const playVideo = () => {
+                heroVideo.play().catch(err => {
+                    console.log('Autoplay attempt failed, retrying...', err);
+                    // Retry after a short delay
+                    setTimeout(playVideo, 100);
+                });
+            };
+            
+            // Start playing as soon as possible
+            if (document.readyState === 'complete') {
+                playVideo();
+            } else {
+                window.addEventListener('load', playVideo);
+            }
+            
+            // Also try when page becomes visible
+            document.addEventListener('visibilitychange', () => {
+                if (!document.hidden && heroVideo.paused) {
+                    playVideo();
+                }
+            });
+            
+            // Ensure video never stays paused
+            heroVideo.addEventListener('pause', () => {
+                playVideo();
             });
         }
     </script>
