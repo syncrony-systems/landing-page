@@ -38,33 +38,37 @@
         
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translate3d(0, 30px, 0);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
         }
         
         .fade-in.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translate3d(0, 0, 0);
+            will-change: auto;
         }
         
         .swipe-indicator {
             animation: swipe 2s ease-in-out infinite;
+            will-change: transform;
         }
         
         @keyframes swipe {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
+            0%, 100% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(10px, 0, 0); }
         }
         
         .logo-scroll-container {
             display: flex;
             animation: scroll 40s linear infinite;
             gap: 3rem;
+            will-change: transform;
         }
         
         @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-100% - 3rem)); }
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(calc(-100% - 3rem), 0, 0); }
         }
         
         .logo-scroll-container:hover {
@@ -399,7 +403,7 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Fade in animations on scroll
+        // Fade in animations on scroll - optimized
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -409,6 +413,8 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    // Stop observing once visible to save resources
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
@@ -451,39 +457,29 @@
             });
         }
 
-        // Ensure video plays
+        // Ensure video plays - optimized version
         const heroVideo = document.getElementById('hero-video');
         if (heroVideo) {
-            // Force video to load and play immediately
-            heroVideo.load();
-            
-            // Try multiple times to ensure it plays
+            // Simple autoplay attempt
             const playVideo = () => {
                 heroVideo.play().catch(err => {
-                    console.log('Autoplay attempt failed, retrying...', err);
-                    // Retry after a short delay
-                    setTimeout(playVideo, 100);
+                    console.log('Autoplay prevented by browser', err);
                 });
             };
             
-            // Start playing as soon as possible
+            // Try once on load
             if (document.readyState === 'complete') {
                 playVideo();
             } else {
-                window.addEventListener('load', playVideo);
+                window.addEventListener('load', playVideo, { once: true });
             }
             
-            // Also try when page becomes visible
+            // Resume when page becomes visible (user returns to tab)
             document.addEventListener('visibilitychange', () => {
                 if (!document.hidden && heroVideo.paused) {
                     playVideo();
                 }
-            });
-            
-            // Ensure video never stays paused
-            heroVideo.addEventListener('pause', () => {
-                playVideo();
-            });
+            }, { passive: true });
         }
     </script>
 
